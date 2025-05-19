@@ -1,0 +1,64 @@
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int main()
+{
+	int num,n,i,j,forward,backward,flag=0;
+	scanf("%d",&num);
+	n=num-1;
+	int a[n];
+	for(i=0;i<=n;i++){
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<=n;i++){
+		forward=0;
+		backward=0;
+		if(i==0&&i==n){
+			if(i==0){
+				for(i=1;i<=n;i++){
+				    backward+=a[i];
+			    }
+			}
+			else{
+				for(i=1;i<=n;i++){
+				    forward+=a[i];
+			    }
+			}
+			if(forward==backward){
+				if(forward==0){
+					printf("0");
+				}
+				else{
+					printf("%d",n);
+				}
+				flag++; 
+				break;
+			}
+			else{
+				continue;
+			}
+		}
+		else{
+			for(j==0;j<i;j++){
+				forward+=a[j];
+			}
+			for(j==i+1;j<=n;j++){
+				backward+=a[j];
+			} 
+			if(forward==backward){
+				printf("%d",i);
+				break;
+			}
+			else{
+				continue;
+			}
+		}
+	}
+	if(flag==0){
+		printf("-1");
+	}
+	else{
+		printf("");
+	}
+	return 0;
+}
